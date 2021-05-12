@@ -1,0 +1,14 @@
+{
+  "name": "tg",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3",
+    "vite": "^2.3.0",
+    "yarn": "^1.22.10"
+  }
+}
