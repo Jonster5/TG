@@ -7,7 +7,7 @@ export class Vec {
 			this.x = x.x;
 			this.y = x.y;
 		} else if (typeof x === 'number') {
-			if (y !== undefined) {
+			if (y === undefined) {
 				this.x = x;
 				this.y = x;
 			} else {
@@ -17,12 +17,12 @@ export class Vec {
 		}
 	}
 
-	set(x: number | Vec, y?: number) {
+	set(x: number | Vec, y?: number): this {
 		if (x instanceof Vec) {
 			this.x = x.x;
 			this.y = x.y;
 		} else if (typeof x === 'number') {
-			if (y !== undefined) {
+			if (y === undefined) {
 				this.x = x;
 				this.y = x;
 			} else {
@@ -30,26 +30,75 @@ export class Vec {
 				this.y = y;
 			}
 		}
+		return this;
 	}
 
-	add() {
-
+	add(x: number | Vec, y?: number): this {
+		if (x instanceof Vec) {
+			this.x += x.x;
+			this.y += x.y;
+		} else if (typeof x === 'number') {
+			if (y === undefined) {
+				this.x += x;
+				this.y += x;
+			} else {
+				this.x += x;
+				this.y += y;
+			}
+		}
+		return this;
 	}
 
-	subtract() {
-
+	subtract(x: number | Vec, y?: number): this {
+		if (x instanceof Vec) {
+			this.x -= x.x;
+			this.y -= x.y;
+		} else if (typeof x === 'number') {
+			if (y === undefined) {
+				this.x -= x;
+				this.y -= x;
+			} else {
+				this.x -= x;
+				this.y -= y;
+			}
+		}
+		return this;
 	}
 
-	multiply() {
-
+	multiply(x: number | Vec, y?: number): this {
+		if (x instanceof Vec) {
+			this.x *= x.x;
+			this.y *= x.y;
+		} else if (typeof x === 'number') {
+			if (y === undefined) {
+				this.x *= x;
+				this.y *= x;
+			} else {
+				this.x *= x;
+				this.y *= y;
+			}
+		}
+		return this;
 	}
 
-	divide() {
-
+	divide(x: number | Vec, y?: number): this {
+		if (x instanceof Vec) {
+			this.x /= x.x;
+			this.y /= x.y;
+		} else if (typeof x === 'number') {
+			if (y === undefined) {
+				this.x /= x;
+				this.y /= x;
+			} else {
+				this.x /= x;
+				this.y /= y;
+			}
+		}
+		return this;
 	}
 
-	normalize() {
-
+	normalize(): this {
+		return this.divide(this.magnitude);
 	}
 
 	get magnitude(): number {
